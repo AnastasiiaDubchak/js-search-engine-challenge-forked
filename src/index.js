@@ -100,9 +100,9 @@ function displayForecast(response) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-//let currentDateELement = document.querySelector("#current-date");
-//let currentDate = new Date();
+let currentDateELement = document.querySelector("#current-date");
+let currentDate = new Date();
 
-//currentDateELement.innerHTML = formatDate(currentDate);
+currentDateELement.innerHTML = formatDate(currentDate);
 
 searchCity("Kyiv");

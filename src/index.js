@@ -12,7 +12,7 @@ function currentTemperature(response) {
   showTemperature.innerHTML = current;
   descriptionElement.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
-  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  windSpeed.innerHTML = `${response.data.wind.speed} meter/sec`;
 }
 
 function search(event) {
@@ -30,7 +30,7 @@ function search(event) {
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
- // let day = date.getDay();
+  //let day = date.getDay();
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -50,10 +50,10 @@ function formatDate(date) {
     "Saturday"
   ];
 
-  let day = days[date.getDay()];
-
+ 
   //let formattedDay = days[day];
-  return `${day} ${hours}:${minutes}`;
+  let formattedDay = days[date.getDay()];
+  return `${formattedDay} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {

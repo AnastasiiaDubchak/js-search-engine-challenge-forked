@@ -105,4 +105,4 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
-searchCity("Kyiv");
+search("Kyiv");

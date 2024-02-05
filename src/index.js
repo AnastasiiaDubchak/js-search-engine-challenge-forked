@@ -68,6 +68,9 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
+
+  console.log(response.data)
+
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
@@ -104,5 +107,3 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
-
-search("Kyiv");

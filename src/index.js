@@ -30,7 +30,7 @@ function search(event) {
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
-  let day = date.getDay();
+ // let day = date.getDay();
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -50,8 +50,10 @@ function formatDate(date) {
     "Saturday"
   ];
 
-  let formattedDay = days[day];
-  return `${formattedDay} ${hours}:${minutes}`;
+  let day = days[date.getDay()];
+
+  //let formattedDay = days[day];
+  return `${day} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {

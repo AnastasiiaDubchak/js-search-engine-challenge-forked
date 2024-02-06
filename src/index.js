@@ -1,6 +1,6 @@
 function currentTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
-  let current = `${temperature}`;
+  //let current = `${temperature}`;
   let showTemperature = document.querySelector(".current-temperature");
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#description");
@@ -8,9 +8,9 @@ function currentTemperature(response) {
   let windSpeed = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let iconElement = document.querySelector("#icon");
-  
+
   cityElement.innerHTML = response.data.city;
-  showTemperature.innerHTML = current;
+  //showTemperature.innerHTML = current;
   descriptionElement.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed} meter/sec`;

@@ -6,14 +6,16 @@ function currentTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind-speed");
-
-
+  let timeElement = document.querySelector("#time");
+  let iconElement = document.querySelector("#icon");
+  
   cityElement.innerHTML = response.data.city;
   showTemperature.innerHTML = current;
   descriptionElement.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed} meter/sec`;
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
+  timeElement.innerHTML = formatDate(date);
 
   getForecast(response.data.city);
 }

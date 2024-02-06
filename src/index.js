@@ -1,17 +1,15 @@
 function currentTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
-  //let current = `${temperature}`;
   let showTemperature = document.querySelector(".current-temperature");
   let cityElement = document.querySelector("#current-city");
-  let descriptionElement = document.querySelector("#description");
+  let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let iconElement = document.querySelector("#icon");
 
   cityElement.innerHTML = response.data.city;
-  //showTemperature.innerHTML = current;
-  descriptionElement.innerHTML = response.data.condition.description;
+  description.innerHTML = response.data.condition.description;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed} meter/sec`;
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
@@ -26,6 +24,8 @@ function search(event) {
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = searchInputElement.value;
 
+search(searchInput.value);
+
   let city = searchInputElement.value;
   let key = "d5oftba2b8dd71c9f0845c003da63bc7";
   let apiKey = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
@@ -37,15 +37,7 @@ function formatDate(date) {
   let hours = date.getHours();
   //let day = date.getDay();
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-
-  let days = [
+    let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -54,10 +46,17 @@ function formatDate(date) {
     "Friday",
     "Saturday"
   ];
-
- 
-  //let formattedDay = days[day];
   let formattedDay = days[date.getDay()];
+   //let formattedDay = days[day];
+ 
+   if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
@@ -114,3 +113,5 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
+search(Kyiv);
